@@ -65,7 +65,7 @@ func (self *UdpForward) Open(srcAddr *net.UDPAddr, dstAddr *net.UDPAddr, mask st
 	self.srcAddr = AddressClone(srcAddr)
 	self.dstAddr = AddressClone(dstAddr)
 	self.closing.Store(false)
-	err := self.udpServer.Open(self.srcAddr, 0)
+	err := self.udpServer.Open(self.srcAddr, 4)
 	if err == nil {
 		if self.logger != nil {
 			self.logger.Printf("Start forwarding %s -> %s\n", srcAddr.String(), dstAddr.String())
